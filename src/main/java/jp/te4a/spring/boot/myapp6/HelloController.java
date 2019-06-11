@@ -27,7 +27,7 @@ public class HelloController {
         StringBuffer buff = new StringBuffer();
         buff.append("<HR>");
         for(BookBean bean:bookService.findAll()) {
-            buff.append("ID:" + bean.getId() + "<BR>" + "タイトル:" + bean.getTitle() + 
+            buff.append("ID:" + bean.getId() + "<BR>" + "タイトル:" + bean.getTitle() + 	
            "<BR>"+ "著者:" + bean.getWritter() + "<BR>" + "出版社:" + bean.getPublisher() + 
            "<BR>"+ "価格:" + bean.getPrice() + "<BR><HR>");
         }
