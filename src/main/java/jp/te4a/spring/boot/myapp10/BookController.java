@@ -1,4 +1,4 @@
-package jp.te4a.spring.boot.myapp8;
+package jp.te4a.spring.boot.myapp10;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("books")
 public class BookController {
+
   @Autowired
   BookService bookService;
+  
   @ModelAttribute 
   BookForm setUpForm() {
-    return new BookForm();
+    return new BookForm();	
   }
   @GetMapping
   String list(Model model) {
@@ -27,7 +29,7 @@ public class BookController {
   String create(BookForm form, Model mode) {
     bookService.create(form);
     return "redirect:/books";
-  }	
+  }
   @PostMapping(path = "edit", params = "form")
   String editForm(@RequestParam Integer id,BookForm form) {
     BookForm bookForm = bookService.findOne(id);
